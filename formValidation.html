@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</head>
+<script>
+    function ValidateForm() {
+        let x = document.forms["form1"]["fname"].value;
+        if (x == "") {
+            alert("Please Enter a Value for the Field Below!")
+            return false;
+        }
+    }
+
+    function ValidateForm2() {
+        let input = document.forms["form2"]["age"].value;
+        if (input < 18) {
+            alert("Sorry, You must be 18 years or above to Participate in this campaign!!")
+            return false;
+        } else if ( input == "") {
+            alert("Please Enter a Value for the Field Below!")
+        }
+    }
+
+
+    function ValidateForm3() {
+        let y = document.getElementById("numb").value;
+        let text = "";
+        if (isNaN(y) || y < 1 || y> 99) {
+            text = "Please enter a Valid Input";
+        } else {
+            text = "Input Successful";
+        }
+        document.getElementById("demo").innerHTML = text;
+    }
+</script>
+
+<body>
+
+<h3>Text Validation</h3>
+<form id="form1" action="#" onsubmit=" return ValidateForm()">
+    First name: <br> <input type="text" name="fname"><br>
+    <input type="submit" value="Submit">
+</form> 
+
+<br>
+<hr>
+
+<h3>Age Validation</h3>
+<form id="form2" action="#" onsubmit=" return ValidateForm2()">
+    Age: <br> <input type="number" name="age"><br>
+    <input type="submit" value="Submit">
+</form> 
+
+<br>
+<hr>
+
+
+<h3>Please input a number between 1 and 10:</h3>
+
+<input id="numb">
+
+<button type="button" onclick="ValidateForm3()">Submit</button>
+
+<p id="demo"></p>
+
+<br>
+<hr>
+
+<h3>Automatic Form Validation</h3>
+<form id="form1" action="#">
+    First name: <br> <input type="text" name="fname" required><br>
+    Nationality: <br> <input type="text" name="nationality" required><br>
+    Age: <br> <input type="number" name="age" required><br>
+    <input type="submit" value="Submit">
+</form> 
+
+</body>
+</html>

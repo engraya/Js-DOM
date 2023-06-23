@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</head>
+<body onload="CookieCheck()">
+<h3>Using Events</h3>
+
+<p id="demo" onclick="this.innerHTML = 'I am a Civil Engineer!'">I am a Django Developer</p>
+
+
+
+<h3>When Function is Called</h3>
+<p id="demo2" onclick="ChangeText(this)">JavaScript</p>
+
+<script>
+    function ChangeText(id) {
+        id.innerHTML = "Python";
+
+    }
+</script>
+
+
+<h3>Using Event Attribute</h3>
+
+<button onclick="DisplayText()">Display Date</button>
+
+<script>
+    function DisplayText() {
+        document.getElementById("demo3").innerHTML = new Date()
+    }
+</script>
+
+<p id="demo3"></p>
+
+
+
+<h3>Assiging Events</h3>
+
+<button id="mybtn">Click me to diplay your age</button>
+
+<p id="demo4"></p>
+<script>
+
+    function myAge() {
+        document.getElementById("demo4").innerHTML = "25"
+    }
+
+    document.getElementById("mybtn").onclick = myAge
+
+</script>
+
+<script>
+    function CookieCheck() {
+        let text = "";
+        if(navigator.cookieEnabled == "True") {
+            text = "Cookie is Enabled in this Browser"
+        } else{
+            text = "Cookie is not Enabled in this Browser"
+        }
+        document.getElementById("cookieText").innerHTML = text;
+    }
+</script>
+
+<p id="cookieText"></p>
+
+
+<h3>OnChange Event</h3>
+
+Enter a Text: <input type="text" id="fname" onchange="upperCase()">
+
+<script>
+    function upperCase() {
+        let y = document.getElementById("fname");
+        y.value = y.value.toUpperCase();
+    }
+</script>
+
+
+<h3>Mouse Events</h3>
+
+<div onmouseover="mouseOver(this)" onmouseout="mouseOut(this)" onmouseup="mouseUp(this)" onmousedown="mouseDown(this)" 
+style="background-color:#056f81;width:200px;height:50px;padding:50px;">
+Mouse Over Me</div>
+
+<script>
+    function mouseOver(id) {
+        id.innerHTML = "Merhaba";
+        id.style.background = "green"
+    }
+
+    function mouseOut(id) {
+        id.innerHTML = "Bounjour"
+        id.style.background = "cyan"
+    }
+
+    function mouseUp(id) {
+        id.innerHTML = "Mouse Over me";
+        id.style.backgroundColor = "yellow";
+    }
+
+    function mouseDown(id) {
+        id.innerHTML = "Default";
+        id.backgroundColor = "maroon"
+    }
+</script>
+
+</body>
+</html>
