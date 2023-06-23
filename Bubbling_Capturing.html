@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #myDiv1, #myDiv2 {
+          background-color: rgb(72, 180, 10);
+          padding: 60px;
+        }
+        
+        #myP1, #myP2 {
+          background-color: rgb(11, 227, 235); 
+          font-size: 23px;
+          border: 3px solid;
+          padding: 25px;
+        }
+        </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bubbling and Capturing</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Bubbling and Capturing</h1>
+
+
+<div id="myDiv1">
+    <h2>Bubbling:</h2>
+    <p id="myP1">Click me!</p>
+  </div><br>
+  
+  <div id="myDiv2">
+    <h2>Capturing:</h2>
+    <p id="myP2">Click me!</p>
+  </div>
+
+
+<script>
+    document.getElementById("myP1").addEventListener("click", function() {
+        alert("You clicked the Sky element!");
+      }, false);
+      
+      document.getElementById("myDiv1").addEventListener("click", function() {
+        alert("You clicked the Green element!");
+      }, false);
+      
+      document.getElementById("myP2").addEventListener("click", function() {
+        alert("You clicked the Sky element!");
+      }, true);
+      
+      document.getElementById("myDiv2").addEventListener("click", function() {
+        alert("You clicked the Green element!");
+      }, true);
+
+</script>
+
+
+</body>
+</html>
